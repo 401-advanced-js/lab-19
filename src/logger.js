@@ -1,12 +1,15 @@
 'use strict';
 
-const io = require('socket.io-client');
+const Q = require('@nmq/q/client');
 
-const socket = io.connect('http://localhost:3001');
+const server = new Q('server');
 
-socket.on('save', payload => {
-  console.log('SHIZ GOT SAVED BRUH TO ', payload);
+server.subscribe('save', (payload) => {
+  console.log('Your file got saved', payload);
 })
-socket.on('error', payload => {
-  console.log('You messed up buddy', payload);
+
+server.subscribe('error', (payload) => {
+  console.log('Shiz didnt happen right', payload);
 })
+
+console.log('current subscriptions:', server.subscriptions());
