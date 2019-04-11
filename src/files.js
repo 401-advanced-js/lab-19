@@ -6,9 +6,7 @@ const util = require('util');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
-
-const io = require('socket.io-client');
-const socket = io.connect('http://localhost:3001');
+const Q = require('@nmq/q/client');
 
 const loadFile = (file) => readFile(file);
 const saveFile = (file,buffer) => writeFile(file,buffer);
@@ -19,10 +17,7 @@ const alterFile = (file) => {
   loadFile(file)
     .then( buffer => convertBuffer(buffer))
     .then( buffer => saveFile(file,buffer) )
-    .then( success => {
-      socket.emit('save', file);
-      socket.end();
-    })
-    .catch(error => socket.emit('error', error));
+    .then( success => Q.publish('server', 'save', 'It works dood'))
+    .catch(error => Q.publish('server', 'error', error));
 };
 module.exports = {loadFile,saveFile,convertBuffer,alterFile};

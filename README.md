@@ -1,16 +1,13 @@
 ![CF](http://i.imgur.com/7v5ASc8.png) LAB
 =================================================
 
-## Lab18
+## Lab19b
 
 ### Spencer Hirata
 
 ### Links and Resources
-* [PR](https://github.com/401-advanced-js/lab-18/pull/1)
-* [![Build Status](https://travis-ci.com/401-advanced-js/lab-17.svg?branch=master)](https://travis-ci.com/401-advanced-js/lab-18)
-
-#### Documentation
-* [jsdoc](https://sleepy-everglades-35707.herokuapp.com/docs)
+* [PR](https://github.com/401-advanced-js/lab-19/pull/1)
+* [![Build Status](https://travis-ci.com/401-advanced-js/lab-17.svg?branch=master)](https://travis-ci.com/401-advanced-js/lab-19)
 
 ### Setup
 #### `.env` requirements
@@ -27,4 +24,4 @@
 * `npm run test`
 
 #### UML
-![socket.io](./assets/lab18.jpg);
+![Message Queue Server](./assets/lab19b.jpg);
